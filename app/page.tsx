@@ -1,15 +1,10 @@
-import Image from "next/image";
-import { dummyData } from "./lib/interface";
+/* eslint-disable @next/next/no-img-element */
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-import axios from "axios";
 import useBlogFetch from "./hooks/BlogFetch";
 
-//axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_URL;
-axios.defaults.headers.post["Content-Type"] = "application/json";
-axios.defaults.headers.patch["Content-Type"] = "application/json";
 export default async function Home() {
   const data = await useBlogFetch("");
   return (

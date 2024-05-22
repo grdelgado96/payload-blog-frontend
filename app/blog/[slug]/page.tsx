@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import { extendedDummyData } from "@/app/lib/interface";
 import useBlogFetch from "@/app/hooks/BlogFetch";
-
+import RichTextRenderer from "@/app/components/RichTextRender";
 export default async function BlogArticle({
   params,
 }: {
@@ -27,12 +28,8 @@ export default async function BlogArticle({
         alt="Title image"
         className="rounded-lg mt-8 border"
       ></img>
-      <div className="mt-16 prose hover:prose-blue prose-lg ">
-        <p
-          dangerouslySetInnerHTML={{
-            __html: data.content[0].children[0].text,
-          }}
-        ></p>
+      <div className="mt-16  ">
+        <RichTextRenderer content={data.content}></RichTextRenderer>
       </div>
     </div>
   );
